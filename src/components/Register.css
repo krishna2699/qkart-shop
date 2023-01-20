@@ -47,11 +47,7 @@
 }
 
 .button {
-    background-color: #00a278 !important;
-}
-
-.button:hover {
-    background-color: #00845c !important;
+  background-color: #00a278 !important;
 }
 
 .loader{

@@ -62,6 +62,9 @@ const Register = () => {
       enqueueSnackbar(
         "Successfully registered",
         { variant: "success" })
+        history.push("/login", {from:"register"})
+
+      
       }
       }    
     
@@ -177,9 +180,9 @@ const Register = () => {
            </Button>}
           <p className="secondary-action">
             Already have an account?{" "}
-             <a className="link" href="/login">
+             <Link className="link" to="/login">
               Login here
-             </a>
+             </Link>
           </p>
           
         </Stack>
