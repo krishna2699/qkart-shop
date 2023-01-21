@@ -13,7 +13,6 @@ const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
 
 
-  // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
   /**
    * Definition for register handler
    * - Function to be called when the user clicks on the register button or submits the register form

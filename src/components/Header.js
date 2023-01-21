@@ -23,6 +23,8 @@ const Header = ({ children, hasHiddenAuthButtons }) => {
             <img src="logo_light.svg" alt="QKart-icon"></img>
         </Box>
 
+
+
       {hasHiddenAuthButtons
         ?(<Button
           className="explore-button"
@@ -34,21 +36,29 @@ const Header = ({ children, hasHiddenAuthButtons }) => {
         </Button>
       )
       : !username 
-      ?<Box> 
+      ?<>
+      <Box width='30vw'>{children}</Box>
+      <Box> 
       <Button onClick={()=>history.push('/login')}>Login</Button>
       <Button variant='contained' onClick={()=>history.push('/register')}>Register</Button>
       </Box>
+      </>
 
-      :<Box>
+      :<>
+      <Box width='30vw'>{children}</Box>
+      <Box>
         <Stack direction={'row'} spacing={1} alignItems={'center'}>
       <Avatar alt={username} src="../../public/avatar.png" />
       <p>{username}</p>
       <Button onClick={handleLogout}>Logout</Button>
       </Stack>
       </Box>
+      </>
+      
       }
 
     </Box>
+    
       
     );   
 };
