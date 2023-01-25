@@ -97,6 +97,8 @@ export const getTotalCartValue = (items = []) => {
  * @param {Function} handleDelete
  *    Handler function which reduces the quantity of a product in cart by 1
  * 
+ * @param {Boolean} isReadOnly
+ *    If product quantity on cart is to be displayed as read only without the + - options to change quantity
  * 
  */
 const ItemQuantity = ({
@@ -132,6 +134,8 @@ const ItemQuantity = ({
  * @param {Function} handleDelete
  *    Current quantity of product in cart
  * 
+ * @param {Boolean} isReadOnly
+ *    If product quantity on cart is to be displayed as read only without the + - options to change quantity
  * 
  */
 const Cart = ({
@@ -239,12 +243,75 @@ const Cart = ({
             variant="contained"
             startIcon={<ShoppingCart />}
             className="checkout-btn"
-            onClick={history.push("/checkout")}
+            onClick={()=>history.push("/checkout")}
           >
             Checkout
           </Button>
         </Box>
       </Box>
+      <>{isReadOnly &&
+      <Box className='cart'>
+
+      <Box
+          padding="1rem"
+          alignItems="center"
+          fontWeight="700"
+          fontSize='1.5rem'
+        >
+          Order Details
+        </Box>
+                
+                <Box
+          paddingLeft="1rem"
+          paddingTop="0.5rem"
+          paddingRight="1rem"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box>Products</Box>
+          <Box>{items.length}</Box>
+        </Box>
+
+        <Box
+          paddingLeft="1rem"
+          paddingTop="0.5rem"
+          paddingRight="1rem"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box>Subtotal</Box>
+          <Box>${getTotalCartValue(items)}</Box>
+        </Box>
+
+        <Box
+          paddingLeft="1rem"
+          paddingRight="1rem"
+          paddingTop="0.5rem"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box>Shipping Charges</Box>
+          <Box>$0</Box>
+        </Box>
+
+        <Box
+          padding="1rem"        
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          frontWeight='700'  fontSize="1.2rem" 
+        >
+          <Box >Total</Box>
+          <Box>${getTotalCartValue(items)}</Box>
+        </Box>
+      
+
+      </Box>
+      }
+      </>
     </>
   );
 };

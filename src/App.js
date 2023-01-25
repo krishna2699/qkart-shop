@@ -6,7 +6,8 @@ import Products from "./components/Products";
 import React from "react";
 import { ThemeProvider } from '@mui/material';
 import theme from "./theme";
-
+import Checkout from './components/Checkout'
+import Thanks from './components/Thanks'
 export const config = {
   endpoint: `http://${ipConfig.workspaceIp}:8082/api/v1`,
 };
@@ -20,7 +21,9 @@ function App() {
         <Switch>
           
             <Route path='/login'><Login /></Route>
+            <Route path='/thanks'><Thanks /></Route>
             <Route path='/register'><Register /></Route>
+            <Route path='/checkout'><Checkout /></Route>
             <Route path='/'><Products /></Route>
 
             </Switch>
